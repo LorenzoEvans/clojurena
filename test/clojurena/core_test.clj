@@ -1,6 +1,6 @@
-(ns arena-cljs.core-test
+(ns clojurena.core-test
   (:require [clojure.test :refer :all]
-            [arena-cljs.core :refer :all]))
+            [clojurena.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

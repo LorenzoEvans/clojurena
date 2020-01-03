@@ -1,4 +1,4 @@
-(ns arena-cljs.core)
+(ns clojurena.core)
 
 (defn foo
   "I don't do a whole lot."
