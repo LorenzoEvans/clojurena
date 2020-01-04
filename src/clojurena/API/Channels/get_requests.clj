@@ -1,4 +1,4 @@
-(ns clojurena.API.Channels.get-requests
+(ns clojurena.API.Channels.channel-get-requests
  (:require [clj-http.client :as client]
            [clojure.string :as str]
            [clojurena.API.utils :refer [async app-id cb-url app-secret]])

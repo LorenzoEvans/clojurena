@@ -1,4 +1,4 @@
-(ns clojurena.API.Blocks.get-requests
+(ns clojurena.API.Blocks.block-get-requests
     (:require [clj-http.client :as client]
               [clojure.string :as str]
               [clojurena.API.utils :refer [async]])) 
@@ -15,7 +15,7 @@
 (defn get-blocks-channels [id]
     "Returns a paginated list of channels a specified block exists in."
     (async
-        (client/get (str base-url (Integer/parseInt id)) {:async? true})))
-        (fn [response] (println "Response is: " response))
-        (fn [exception] (println "Exception is: " exception))
+        (client/get (str base-url (Integer/parseInt id)) {:async? true}
+           (fn [response] (println "Response is: " response))
+           (fn [exception] (println "Exception is: " exception)))))
          

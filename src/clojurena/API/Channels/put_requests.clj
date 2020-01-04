@@ -1,2 +1,2 @@
-(ns clojurena.API.Channels.put-requests
+(ns clojurena.API.Channels.channel-put-requests
  (:require [clj-http.client :as client]))
