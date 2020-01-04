@@ -11,5 +11,7 @@
 
 (def block 
   (client/get "https://api.are.na/v2/blocks/8693"))
+(def channel
+  (client/get "https://api.are.na/v2/channels/pop-codeture"))
 
 (println  block)
