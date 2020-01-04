@@ -33,7 +33,8 @@
     "Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
     (async
       (client/get (str base-url channel-name "/" "channels")
-       (fn [response] (println "Respone")))))
+       (fn [response] (println "Response is: " response))
+       (fn [exception] (println "Exception is: " exception)))))
     
 ; (defn get-channel
 ;  "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
