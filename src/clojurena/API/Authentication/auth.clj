@@ -19,8 +19,8 @@
 ; (println auth-data)
 ; Access Token (for general are.na access?)
 ; (def returned-code <= current
-;     ;something something 
-;  auth-data)
+;     ;something like (get-in auth-data [:cookies _platform_session :value])
+; )
 (def base-token-url "http://dev.are.na/oauth/token")
 (def client-secret-query (str "?client_secret" app-secret)) ;*
 ; deprecated (def code "&code=RETURNED") ;* ? pull this off auth-data
