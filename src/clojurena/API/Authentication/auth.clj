@@ -4,18 +4,19 @@
               [clojure.string :as str]
               [clojurena.API.utils :refer [async app-id cb-url app-secret]]))
 
-; Authorization for single user if someone
-; wanted to pull are.na data for their own site/zine/blog.
-; *might be hardcoding browser query stuffs here
+; Authorization for lib
+
 (def base-auth-url "http://dev.are.na/oauth/authorize")
 (def client-id-query (str "?client_id=" app-id)) ;*
 (def redirect-uri (str "&redirect_uri" cb-url)) ;*
 (def response-type "&response_type=code") ;*
 
 (def auth-url (str base-auth-url client-id-query redirect-uri response-type))
-(def auth-data (async (client/get auth-url {:async? true}
-                       (fn [response] (println "Response is: " response))
-                       (fn [exception] (println "Exception is: " exception)))))
+(def auth-data 
+    (async 
+        (client/get auth-url {:async? true}
+            (fn [response] (println "Response is: " response))
+            (fn [exception] (println "Exception is: " exception)))))
 ; (println auth-data)
 ; Access Token (for general are.na access?)
 ; (def returned-code <= current

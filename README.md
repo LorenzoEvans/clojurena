@@ -4,6 +4,8 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Usage
 
+https://dev.are.na/oauth/authorize?client_id=aa7365a1f8df2aec7b31405a7fa50944df77b2bd63c5bac07f97829168867da5&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code
+
 FIXME
 
 ## License
