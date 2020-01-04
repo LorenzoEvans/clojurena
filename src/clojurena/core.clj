@@ -1,6 +1,5 @@
 (ns clojurena.core
-  (:require [compojure.core :refer :all]
-            [compojure.response :as res]
+  (:require 
             [clojure.data.json :as json]
             [clj-http.client :as client]))
 
