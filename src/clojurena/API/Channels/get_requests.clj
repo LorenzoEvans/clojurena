@@ -4,25 +4,41 @@
            [clojurena.API.utils :refer [async app-id cb-url app-secret]])
  (:import '(java.util.concurrent TimeoutException TimeUnit)))          
 
-(def base-endpoint "https://api.are.na/v2/channels")
-(def channel-endpoint "https://api.are.na/")
+(def base-url "https://api.are.na/v2/channels/")
 (def all-public-channels 
-    (client/get base-endpoint))
+    (client/get base-url))
 
-(defn get-channel
- "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
-    ([url] 
-     (async
-      (client/get url {:async? true}
-       (fn [response] (println "response is: " response)))))
-    ([base-url channel]
-     (async
-      (client/get (str base-url channel) {:async? true}
-        (fn [response] (println "response is: " response)))))
-    ([base-url channel page]
-     (async 
-        (client/get (str base-url channel "?" "page=" page) {:async? true}
-            (fn [response] (println "response is: " response)))))
-    ([base-url channel page limit]
-     (async
-        (client/get (str base-url channel "?" "page=" page "&" "per=" limit)))))      
+(defn get-single-channel [channel-name]
+    "Returns contents of specified channel, can be paginated."
+    (async
+        (client/get (str base-url channel-name) {:async? true}
+         (fn [response] (println "Response is: " response))
+         (fn [exception] (println "Exception is: " exception)))))
+
+(defn get-channel-thumb [channel-name]
+ "Returns a 9 block representation of a specified channel."
+ (async
+    (client/get (str base-url channel-name "/" "thumb") {:async? true}
+     (fn [response] (println "Response is: " response))
+     (fn [exception] (println "Exception is: " exception)))))
+
+(defn get-channel-connections [channel-name]
+ "Returns a collection all of the connections a specified channel has, sans contents, can be paginated."
+    (async 
+        (client/get (str base-url channel-name "/" "connections") {:async? true}
+         (fn [response] (println "Response is: " response))
+         (fn [exception] (println "Exception is: " exception)))))
+
+(defn get-connected-blocks [channel-name]
+    "Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
+    (async
+      (client/get (str base-url channel-name "/" "channels")
+       (fn [response] (println "Respone")))))
+    
+; (defn get-channel
+;  "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
+  
+;     ([base-url slug page limit]
+;      (async
+;         (client/get (str base-url channel "?" "page=" page "&" "per=" limit)))))    
+  
