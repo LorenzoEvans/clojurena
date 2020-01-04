@@ -20,6 +20,7 @@
         (.cancel request true))))
 
 (defn get-channel
+ "Multi-arity function for gettinc channels based on properties" 
     ([url] 
      (async
       (client/get url {:async? true}
@@ -28,5 +29,10 @@
      (async
       (client/get (str base-url channel) {:async? true}
         (fn [response] (println "response is: " response)))))
-    ([base-url channel page])
-    ([base-url channel page limit]))      
+    ([base-url channel page]
+     (async 
+        (client/get (str base-url channel "?" "page=" page) {:async? true}
+            (fn [response] (println "response is: " response)))))
+    ([base-url channel page limit]
+     (async
+        (client/get (str base-url channel "?" "page=" page "&" "per=" limit)))))      
