@@ -1,5 +1,5 @@
 (ns clojurena.API.Channels.get-requests
- (:require [compojure.core :refer [GET defroutes]]
+ (:require [clj-http.client :as client]
            [clojure.string :as str]))
 
 (def base-endpoint "https://api.are.na/v2/channels")

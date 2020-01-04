@@ -1,3 +1,3 @@
 (ns clojurena.API.Channels.delete-requests
- (:require [compojure.core :refer [DELETE]]))
+ (:require [clj-http.client :as client]))
 

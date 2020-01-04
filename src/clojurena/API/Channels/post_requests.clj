@@ -1,3 +1,3 @@
 (ns clojurena.API.Channels.post-requests
- (:require [compojure.core :refer [POST]]))
+ (:require [clj-http.client :as client]))
 

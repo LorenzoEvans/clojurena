@@ -1,2 +1,2 @@
 (ns clojurena.API.Channels.put-requests
- (:require [compojure.core :refer [PUT]]))
+ (:require [clj-http.client :as client]))
