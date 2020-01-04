@@ -1,8 +1,9 @@
 (ns clojurena.API.Authentication.auth
     (:require [clj-http.client :as client]
               [environ.core :refer [env]]
-              [clojure.string :as str]
-              [clojurena.API.utils :refer [async app-id cb-url app-secret]]))
+              [clojure.string :as str]))
+              ;[clojurena.API.utils :refer [async app-id cb-url app-secret]] 
+              
 
 ; Authorization for lib
 
