@@ -5,7 +5,7 @@
 
 (defn async [request]
     (try
-     (.get request 5 TimeUnit/SECONDS)
+     (.get request 10 TimeUnit/SECONDS)
      (catch TimeoutException e
         (.cancel request true))))
 
