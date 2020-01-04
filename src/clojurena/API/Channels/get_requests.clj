@@ -1,26 +1,16 @@
 (ns clojurena.API.Channels.get-requests
  (:require [clj-http.client :as client]
-           [clojure.string :as str])
+           [clojure.string :as str]
+           [clojurena.API.utils :refer [async app-id cb-url app-secret]])
  (:import '(java.util.concurrent TimeoutException TimeUnit)))          
 
 (def base-endpoint "https://api.are.na/v2/channels")
 (def channel-endpoint "https://api.are.na/")
-(def all-channels 
+(def all-public-channels 
     (client/get base-endpoint))
 
-(def get-channel
-; Maybe make multi arity fn instead
-    (fn [& channel page limit]
-     (GET (str channel-endpoint channel) [])))
-
-(defn async [request]
-    (try
-     (.get request 5 TimeUnit/SECONDS)
-     (catch TimeoutException e
-        (.cancel request true))))
-
 (defn get-channel
- "Multi-arity function for gettinc channels based on properties" 
+ "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
     ([url] 
      (async
       (client/get url {:async? true}

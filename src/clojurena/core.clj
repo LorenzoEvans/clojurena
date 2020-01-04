@@ -1,7 +1,8 @@
 (ns clojurena.core
   (:require 
             [clojure.data.json :as json]
-            [clj-http.client :as client]))
+            [clj-http.client :as client]
+            [clojurena.API.Authentication.auth :refer [auth-data]]))
 
 (defn -main
   "I don't do a whole lot."
@@ -13,4 +14,5 @@
 (def channel
   (client/get "https://api.are.na/v2/channels/pop-codeture"))
 
-(println  block)
+; (println  block)
+(println auth-data)
