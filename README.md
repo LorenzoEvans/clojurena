@@ -1,6 +1,6 @@
 # arena-cljs
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to interact with the are.na api.
 
 # Work In Progress!
 
@@ -11,7 +11,7 @@ In order to use this library to interact with your personal are.na account, you 
 
 https://dev.are.na/oauth/authorize?client_id=aa7365a1f8df2aec7b31405a7fa50944df77b2bd63c5bac07f97829168867da5&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code
 
-In order to obtain an access token, you will need to login to dev.are.na, with your are.na account information, and create a new application, fill out the required information, save it, and then, under "Your Applications", find the application you just created, and you will find some keys listed.
+In order to obtain an access token, you will need to login to dev.are.na, with your are.na account information, and create a new application, fill out the required information, save it, and then, under "Your Applications", select the application you just created, and you will find some keys listed, your Application Id, Secret, personal Access code, etc, these can be used in environment variables to access are.na on your behalf, or to allow your code to interact with other individuals are.na account on their behalf.
 
 ## License
 
