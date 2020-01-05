@@ -13,16 +13,17 @@
                    :user-pw-vec (if (and user pass) [user pass])}]
     (async
       (client/post (str base-url slug "/blocks") 
-        (cond 
+        (cond ; we should refactor this again, for better handling of condition possibilities.
           (not= (:source arg-map) nil) {:oauth-token (:auth arg-map) 
-                                              :source (:source arg-map)
-                                              :coerce :always}
+                                        :source (:source arg-map)
+                                        :coerce :always}
           (= source nil) {:oauth-token (:auth arg-map) 
                                 :content (:content arg-map)
                                 :coerce :always}
-          (not= (:user-pw-vec arg-map) nil) {:basic-auth [(first (:user-pw-vec arg-map)) 
-                                                          (fnext (:user-pw-vec arg-map))]
-                                             :content content
-                                             :coerce :always}
+          (and (not= (:user-pw-vec arg-map) nil) 
+               (or source content)) {:basic-auth [(first (:user-pw-vec arg-map)) 
+                                                  (fnext (:user-pw-vec arg-map))]
+                                     :content (:content arg-map)
+                                     :coerce :always}
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception)))))) 
