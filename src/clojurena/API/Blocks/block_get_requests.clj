@@ -5,17 +5,17 @@
 
 (def base-url "https://api.are.na/v2/blocks/")
 
-(defn get-block-by-id [id]
-    "Returns the full representation of a block, id is an integer."
+(defn get-block-by-id [block-id]
+    "Returns the full representation of a block, id is an numeric string."
     (async
-        (client/get (str base-url (Integer/parseInt id)) {:async? true}
+        (client/get (str base-url block-id) {:async? true}
          (fn [response] (println "Response is: " response))
          (fn [exception] (println "Exception is: " exception)))))
 
-(defn get-blocks-channels [id]
+(defn get-blocks-channels [block-id]
     "Returns a paginated list of channels a specified block exists in."
     (async
-        (client/get (str base-url (Integer/parseInt id)) {:async? true}
+        (client/get (str base-url block-id) {:async? true}
            (fn [response] (println "Response is: " response))
            (fn [exception] (println "Exception is: " exception)))))
          
