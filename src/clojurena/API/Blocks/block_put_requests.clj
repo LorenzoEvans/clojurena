@@ -30,4 +30,11 @@
           (fn [exception] (println "Response is: " exception) exception)))))
               
                 
-                                                 
+(defn toggle-block-status [slug id status auth & user pass]
+ "Changes the status of a block, specifically it's connection to a channel."
+  (async
+    (client/put (str base-url slug "/" "blocks/" id "/" selection) {:oauth-token (if (not= nil auth) auth) 
+                                                                    :status status
+                                                                    :basic-auth (if (not= nil user pass) [user pass])}
+     (fn [response] (println "Response is: " response) response)
+     (fn [exception] (println "Exception is: " exception) exception))))                       
