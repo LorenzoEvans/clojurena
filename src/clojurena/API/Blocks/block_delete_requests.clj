@@ -4,10 +4,10 @@
               [clojurena.API.utils :refer [async]]
               [clojurea.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn delete-block [slug block-id]
+(defn delete-block [channel-name block-id]
     "Deletes/removes connection between a block and channel."
     (async
-        (client/delete (str base-url slug "/" "blocks" "/" block-id)
+        (client/delete (str base-url channel-name "/" "blocks" "/" block-id)
                        {:async? true}
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception))))

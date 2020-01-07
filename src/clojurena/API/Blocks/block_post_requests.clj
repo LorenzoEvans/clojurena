@@ -4,15 +4,15 @@
               [clojurena.API.utils :refer [async]]
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn post-block [slug source auth & content user pass]
+(defn post-block [channel-name source auth & content user pass]
     "Posts a block to the specified channel, requires authentication, use source *or* content, not both."
-  (let [arg-map {:slug slug 
+  (let [arg-map {:channel-name channel-name 
                    :source source 
                    :auth auth 
                    :content (if (not= content nil) content) 
                    :user-pw-vec (if (and user pass) [user pass])}]
     (async
-      (client/post (str base-url slug "/blocks") 
+      (client/post (str base-url channel-name "/blocks") 
         (cond ; we should refactor this again, for better handling of condition possibilities.
           (not= (:source arg-map) nil) {:oauth-token (:auth arg-map) 
                                         :source (:source arg-map)

@@ -4,7 +4,8 @@
 		   [clojurena.API.utils :refer [async app-id cb-url app-secret]]))          
 
 (def base-url "https://api.are.na/v2/channels/")
-(def all-public-channels 
+(def all-public-channels
+  "Returns all public channels. May be a large amount of data, so be careful/patient." 
 	(client/get base-url))
 
 (defn get-single-channel [channel-name]
@@ -28,17 +29,23 @@
 		 (fn [response] (println "Response is: " response) response)
 		 (fn [exception] (println "Exception is: " exception) exception))))
 
-(defn get-connected-blocks [channel-name]
+(defn get-connected-channels [channel-name]
 	"Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
 	(async
 	  (client/get (str base-url channel-name "/" "channels")
 	   (fn [response] (println "Response is: " response) response)
 	   (fn [exception] (println "Exception is: " exception) exception))))
 
+(defn get-channel-contents [channel-name]
+  "Returns a list of channel contents, sans collaborators."
+  (async
+    (client/get (str base-url channel-name "/" "contents")
+    (fn [response] (println "Response is: " response) response)
+    (fn [exception] (println "Exception is: " response) response))))
 ; (defn get-channel
 ;  "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
   
-;     ([base-url slug page limit]
+;     ([base-url channel-name page limit]
 ;      (async
 ;         (client/get (str base-url channel "?" "page=" page "&" "per=" limit)))))    
   
