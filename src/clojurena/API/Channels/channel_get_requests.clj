@@ -42,10 +42,5 @@
     (client/get (str base-url channel-name "/" "contents")
     (fn [response] (println "Response is: " response) response)
     (fn [exception] (println "Exception is: " response) response))))
-; (defn get-channel
-;  "Multi-arity function for getting channels based on channel name, page, and pagination limit" 
-  
-;     ([base-url channel-name page limit]
-;      (async
-;         (client/get (str base-url channel "?" "page=" page "&" "per=" limit)))))    
-  
+
+
