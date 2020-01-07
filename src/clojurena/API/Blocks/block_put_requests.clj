@@ -37,4 +37,4 @@
                                                                     :status status
                                                                     :basic-auth (if (not= nil user pass) [user pass])}
      (fn [response] (println "Response is: " response) response)
-     (fn [exception] (println "Exception is: " exception) exception))))                       
+     (fn [exception] (println "Exception is: " exception) exception))))
