@@ -12,7 +12,7 @@
                    :content (if (not= content nil) content) 
                    :user-pw-vec (if (and user pass) [user pass])}]
     (async
-      (client/post (str base-url channel-name "/blocks") 
+      (client/post (str base-url channel-name "/blocks") {:async? true}
         (cond ; we should refactor this again, for better handling of condition possibilities.
           (not= (:source arg-map) nil) {:oauth-token (:auth arg-map) 
                                         :source (:source arg-map)
