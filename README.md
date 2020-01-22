@@ -1,11 +1,18 @@
 # arena-cljs
 
-A Clojure library designed to interact with the are.na api.
+Clojurena is a small library, that acts as a wrapper for the are.na api. 
+
+Are.na is a networked thought and visual organization tool designed to help you think and create.
+
+![Clojurena logo](clojurena.jpeg)
 
 # Work In Progress!
 
-## Usage
+Documentation (currently very incomplete):
 
+https://clojurena.gitbook.io/clojurena/
+
+## Usage
 
 In order to use this library to interact with your personal are.na account, you will need to authorize Clojurena to access your account, which can be done with the string below:
 
