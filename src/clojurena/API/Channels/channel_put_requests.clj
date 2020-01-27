@@ -4,11 +4,24 @@
            [clojurena.API.utils :refer [async]]
            [clojurena.API.Blocks.block-put-requests :refer [toggle-block-status]]))
 
-(defn update-channel []
-  "Updates the contents of a channel")
+(def base-url "https://api.are.na/v2/channels/")
 
-(defn update-order []
-  "Updates the order(?) of a channel according to id's.")
+(defn update-channel-attributes [slug status]
+  "Updates the contents of a channel"
+  (async
+    (client/put (str base-url slug) {:async? true
+                                     :status status
+                                     :title slug}
+      (fn [response] (println "Response is: " response) response)
+      (fn [exception] (println "Exception is: " exception) exception))))
+
+(defn update-order [ids]
+  "Updates the order of a channel according to the order of the id's, expected as a vector"
+  (async
+    (client/put (str base-url slug "/" "sort") {:async? true
+                                                :ids ids}
+      (fn [response] (println "Response is: " response) response)
+      (fn [exception] (println "Exception is: " exception) exception))))
 
 (defn toggle-block [status]
   "Toggles the status of a specific block.")

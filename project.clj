@@ -7,5 +7,5 @@
                  [clj-http "3.10.0"]
                  [org.clojure/data.json "0.2.6"]
                  [environ "1.1.0"]]
-  :main ^:skip-aot clojurena.core
+  :main clojurena.core
   :profiles {:uberjar {:aot :all}})

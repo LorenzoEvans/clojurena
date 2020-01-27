@@ -10,16 +10,19 @@
  "Creates a channel."
   (async
     (client/post base-url (cond 
-                           (= status nil) {:title channel-name}
+                           (= status nil) {:title channel-name
+                                           :async? true}
                             :else {:title channel-name
-                                   :status status})
+                                   :status status
+                                   :async? true})
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception))))
 
 (defn check-collaborators [ids channel-name]
  "Returns collaborators of a given channel."
   (async
-    (client/post (str base-url channel-name "/" "collaborators") {:body ids}
+    (client/post (str base-url channel-name "/" "collaborators") {:body ids
+                                                                  :async? true}
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception)))) 
   
