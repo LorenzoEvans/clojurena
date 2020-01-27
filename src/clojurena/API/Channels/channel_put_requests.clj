@@ -23,5 +23,10 @@
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception))))
 
-(defn toggle-block [status]
-  "Toggles the status of a specific block.")
+(defn toggle-block [slug status block-id]
+  "Toggles the status of a specific block."
+  (async
+    (client/put (str base-url slug "/" "blocks/" block-id "/selection") {:async? true
+                                                                         :status status}
+      (fn [response] (println "Response is: " response) response)
+      (fn [exception] (println "Exception is: " exception) exception))))
