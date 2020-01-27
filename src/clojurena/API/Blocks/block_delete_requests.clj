@@ -4,12 +4,14 @@
               [clojurena.API.utils :refer [async]]
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn delete-block [channel-name block-id & auth-token]
+(def default-url "https://api.are.na/v2/channel/")
+
+(defn delete-block [slug block-id & auth-token]
     "Deletes/removes connection between a block and channel, requires authentication"
     (async
-        (client/delete (str base-url channel-name "/" "blocks" "/" block-id)
+        (client/delete (str default-url slug "/" "blocks" "/" block-id)
                        {:async? true
-                        :oauth-token auth-token}
+                        :headers {"Authorization" auth-token}}
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception))))
     
