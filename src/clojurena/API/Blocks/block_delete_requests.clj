@@ -12,3 +12,7 @@
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception))))
     
+(def del-test 
+  (delete-block "Clojurena-test" "5967619"))
+
+(println del-test)
