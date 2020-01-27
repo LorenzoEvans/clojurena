@@ -41,6 +41,6 @@
   (async
     (client/get (str base-url channel-name "/" "contents")
     (fn [response] (println "Response is: " response) response)
-    (fn [exception] (println "Exception is: " response) response))))
+    (fn [exception] (println "Exception is: " exception) exception))))
 
 

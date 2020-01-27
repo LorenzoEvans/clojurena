@@ -2,7 +2,8 @@
   (:require 
             [clojure.data.json :as json]
             [clj-http.client :as client]
-            [clojurena.API.Authentication.auth :refer [auth-data]]
+            [clojurena.API.Authentication.auth]
+            [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojure.java.browse :refer [browse-url]]))
 
 (defn -main
@@ -15,6 +16,9 @@
 (def channel
   (client/get "https://api.are.na/v2/channels/pop-codeture"))
 
+(def del-test
+  (delete-block "Clojurena-test" "5967619"))
+(println del-test)
 ; (println  block)
 ; (println auth-data)
 ; (browse-url "www.twitter.com")

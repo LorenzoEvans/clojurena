@@ -2,7 +2,7 @@
     (:require [clj-http.client :as client]
               [clojure.string :as str]
               [clojurena.API.utils :refer [async]]
-              [clojurea.API.Channels.channel-get-requests :refer [base-url]])) 
+              [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
 (defn delete-block [channel-name block-id]
     "Deletes/removes connection between a block and channel."
