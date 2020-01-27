@@ -5,7 +5,7 @@
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
 (defn delete-block [channel-name block-id]
-    "Deletes/removes connection between a block and channel."
+    "Deletes/removes connection between a block and channel, requires authentication"
     (async
         (client/delete (str base-url channel-name "/" "blocks" "/" block-id)
                        {:async? true}
