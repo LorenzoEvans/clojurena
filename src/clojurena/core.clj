@@ -3,6 +3,7 @@
             [clojure.data.json :as json]
             [clj-http.client :as client]
             [clojurena.API.Authentication.auth]
+            [environ.core :refer [env]]
             [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojure.java.browse :refer [browse-url]]))
 
@@ -17,7 +18,7 @@
   (client/get "https://api.are.na/v2/channels/pop-codeture"))
 
 (def deltest
-  (delete-block "Clojurena-test" "5967619"))
+  (delete-block "Clojurena-test" "5967619" (env :access-token)))
 (println deltest)
 ; (println  block)
 ; (println auth-data)

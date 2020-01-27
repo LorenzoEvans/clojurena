@@ -4,11 +4,12 @@
               [clojurena.API.utils :refer [async]]
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn delete-block [channel-name block-id]
+(defn delete-block [channel-name block-id & auth-token]
     "Deletes/removes connection between a block and channel, requires authentication"
     (async
         (client/delete (str base-url channel-name "/" "blocks" "/" block-id)
-                       {:async? true}
+                       {:async? true
+                        :oauth-token auth-token}
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception))))
     

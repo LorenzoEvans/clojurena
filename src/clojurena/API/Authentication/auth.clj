@@ -12,11 +12,11 @@
 (def redirect-uri (str "&redirect_uri" cb-url)) ;*
 (def response-type "&response_type=code") ;*
 (def auth-url (str base-auth-url client-id-query redirect-uri response-type))
-; (def auth-data 
-;     (async 
-;         (client/get auth-url {:async? true}
-;             (fn [response] (println "Response is: " response))
-;             (fn [exception] (println "Exception is: " exception)))))
+(def auth-data 
+    (async 
+        (client/get auth-url {:async? true}
+            (fn [response] (println "Response is: " response))
+            (fn [exception] (println "Exception is: " exception)))))
 ; (println auth-data)
 ; Access Token (for general are.na access?)
 ; (def returned-code <= current
