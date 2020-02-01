@@ -17,7 +17,8 @@
          (fn [response] (println "Response is: " response) response)
          (fn [exception] (println "Exception is: " exception) exception))))
     
-(def del-test 
-  (delete-block "Clojurena-test" "5967619"))
+; currently having trouble pulling channel ID
+; (def del-test 
+;   (delete-block "Clojurena-test" "5967619"))
 
-(println del-test)
+; (println del-test)
