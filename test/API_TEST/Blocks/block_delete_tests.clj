@@ -1,4 +1,4 @@
-(ns clojurena.API.Blocks.block-delete-tests
+(ns clojurena.API-TEST.Blocks.block-delete-tests
   (:require [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojure.test :refer :all]
             [clj-http.client :as client]))

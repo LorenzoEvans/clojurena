@@ -6,14 +6,14 @@
 (def base-url "https://api.are.na/v2/blocks/")
 
 (defn get-block-by-id [block-id]
-    "Returns the full representation of a block, id is an numeric string."
+    "Returns the full representation of a block, id is an numeric string, does not require authentication."
     (async
         (client/get (str base-url block-id) {:async? true}
          (fn [response] (println "Response is: " response))
          (fn [exception] (println "Exception is: " exception)))))
 
 (defn get-blocks-channels [block-id]
-    "Returns a paginated list of channels a specified block exists in."
+    "Returns a paginated list of channels a specified block exists in, does not require authentication, does have pagination."
     (async
         (client/get (str base-url block-id) {:async? true}
            (fn [response] (println "Response is: " response))
