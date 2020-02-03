@@ -15,11 +15,18 @@
   (testing "Ability to retrieve a specific user"
     (is (= (:status (get-user-channels "17")) 200))))
 
-(deftest get-follows 
+(deftest get-follows-test 
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (get-follows "17"))))))
 
 
-(deftest get-followerss 
+(deftest get-followers-test
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (get-followers "17"))))))
+
+(deftest block-tests
+  (get-user-test)
+  (get-user-channel-test)
+  (get-user-channels-test)
+  (get-follows-test)
+  (get-followers-test))
