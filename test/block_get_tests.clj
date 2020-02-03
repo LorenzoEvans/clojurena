@@ -7,6 +7,6 @@
   (testing "Ability to retrieve individual blocks"
     (is (= (:status (get-block-by-id base-url "5967619")) 200))))
 
-(deftest get-blocks-channels
+(deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
     (is (= (:sttus (get-block-by-id-test base-url "5967619"))))))
