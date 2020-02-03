@@ -22,7 +22,7 @@
     (is (= (:status (search-blocks "history")) 200))))
 
 
-(deftest search-tests
+(deftest search-get-tests
   (search-test)
   (search-users-test)
   (search-channels-test)

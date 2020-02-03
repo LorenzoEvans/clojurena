@@ -24,7 +24,7 @@
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (get-followers "17"))))))
 
-(deftest block-tests
+(deftest user-get-tests
   (get-user-test)
   (get-user-channel-test)
   (get-user-channels-test)

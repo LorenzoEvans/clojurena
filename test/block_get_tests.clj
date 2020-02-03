@@ -10,3 +10,7 @@
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
     (is (= (:sttus (get-block-by-id-test base-url "5967619"))))))
+
+(deftest block-get-tests
+  (get-block-by-id-test)
+  (get-blocks-channels-test))
