@@ -12,14 +12,9 @@
   []
   (println "Hello, World!"))
 
-(def block 
-  (client/get "https://api.are.na/v2/blocks/8693"))
-(def channel
-  (client/get "https://api.are.na/v2/channels/pop-codeture"))
-
 ; (def deltest
 ;   (delete-block "Clojurena-test" "5967619" (env :access-token)))
-(println channel)
+; (println channel)
 ; (println  block)
 ; (println auth-data)
 ; (browse-url "www.twitter.com")
