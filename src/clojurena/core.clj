@@ -5,7 +5,8 @@
             [clojurena.API.Authentication.auth]
             [environ.core :refer [env]]
             [clojurena.API.Blocks.block-delete-requests :refer :all]
-            [clojure.java.browse :refer [browse-url]]))
+            [clojure.java.browse :refer [browse-url]])
+  (:gen-class))
 
 (defn -main
   "I don't do a whole lot."
