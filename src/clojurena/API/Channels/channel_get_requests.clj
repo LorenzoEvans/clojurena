@@ -1,7 +1,7 @@
 (ns clojurena.API.Channels.channel-get-requests
  (:require [clj-http.client :as client]
 		   [clojure.string :as str]
-		   [clojurena.API.utils :refer [async app-id cb-url app-secret]]))          
+		   [clojurena.API.utils :refer [async app-id cb-url app-secret]])) ; require entire utils ns as utils         
 
 (def base-url "https://api.are.na/v2/channels/")
 (def all-public-channels

@@ -17,9 +17,9 @@
 (def channel
   (client/get "https://api.are.na/v2/channels/pop-codeture"))
 
-(def deltest
-  (delete-block "Clojurena-test" "5967619" (env :access-token)))
-(println deltest)
+; (def deltest
+;   (delete-block "Clojurena-test" "5967619" (env :access-token)))
+(println channel)
 ; (println  block)
 ; (println auth-data)
 ; (browse-url "www.twitter.com")

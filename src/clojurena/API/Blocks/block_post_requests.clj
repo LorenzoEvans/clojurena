@@ -1,7 +1,7 @@
 (ns clojurena.API.Blocks.block-post-requests
     (:require [clj-http.client :as client]
               [clojure.string :as str]
-              [clojurena.API.utils :refer [async]]
+              [clojurena.API.utils :refer [async]] ; [clojurena.API.utils :as utils] => utils/async 
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
 (defn post-block [channel-name source auth & content user pass]
@@ -21,7 +21,7 @@
                                 :content (:content arg-map)
                                 :coerce :always}
           (and (not= (:user-pw-vec arg-map) nil) 
-               (or source content)) {:basic-auth [(first (:user-pw-vec arg-map)) 
+               (or source content)) {:basic-auth [(first (:user-pw-vec arg-map)) ; don't use first to unpack tuples (is a binary vector a tuple?) => (get list 0)
                                                   (fnext (:user-pw-vec arg-map))]
                                      :content (:content arg-map)
                                      :coerce :always}
