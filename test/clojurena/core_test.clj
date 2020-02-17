@@ -1,7 +1,7 @@
-(ns clojurena.core-test
+(ns core-test
   (:require [clojure.test :refer :all]
             [clj-http.client :as client]
-            [environ.core :as env]
+            [environ.core :as
             [clojurena.API.Blocks.block-delete-requests :as block-del]
             [clojurena.API.Blocks.block-get-requests :as block-get]
             [clojurena.API.Blocks.block-put-requests :as block-put]
@@ -13,7 +13,8 @@
             [clojurena.API.Search.search-get-requests :as search-get]          
             [clojurena.API.Users.user-get-requests :as user-get]          
             [clojurena.API]
-            [clojurena.API]))
+            [clojurena.API])
+  (:gen-class))
             
 ; Block delete tests
 (deftest delete-block
@@ -28,7 +29,7 @@
 
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
-    (is (= (:sttus (block-get/get-block-by-id-test base-url "5967619"))))))
+    (is (= (:status (block-get/get-block-by-id-test base-url "5967619"))))))
 
 (deftest block-get-tests
   (get-block-by-id-test)

@@ -8,4 +8,5 @@
                  [org.clojure/data.json "0.2.6"]
                  [environ "1.1.0"]]
   :main clojurena.core
+  :aot clojurena.core
   :profiles {:uberjar {:aot :all}})
