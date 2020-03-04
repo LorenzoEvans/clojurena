@@ -4,13 +4,13 @@
               [clojurena.API.utils :refer [async]] ; [clojurena.API.utils :as utils] => utils/async 
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn post-block [channel-name source auth & content user pass]
+(defn post-block [channel-name source auth content & args] ; user, pass => args
     "Posts a block to the specified channel, requires authentication, use source *or* content, not both."
   (let [arg-map {:channel-name channel-name 
                    :source source 
                    :auth auth 
                    :content (if (not= content nil) content) 
-                   :user-pw-vec (if (and user pass) [user pass])}]
+                   :user-pw-vec (if (and (:user args) (:pass args)) [(:user args) (:pass args)])}]
     (async
       (client/post (str base-url channel-name "/blocks") {:async? true}
         (cond ; we should refactor this again, for better handling of condition possibilities.
