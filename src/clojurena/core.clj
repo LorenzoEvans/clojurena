@@ -4,7 +4,16 @@
             [clj-http.client :as client]
             [clojurena.API.Authentication.auth]
             [environ.core :refer [env]]
+            [clojurena.API.Channels.channel-get-requests]
+            [clojurena.API.Channels.channel-post-requests]
+            [clojurena.API.Channels.channel-put-requests]
+            [clojurena.API.Channels.channel-delete-requests]
+            [clojurena.API.Blocks.block-get-requests]
+            [clojurena.API.Blocks.block-post-requests]
+            [clojurena.API.Blocks.block-put-requests]
             [clojurena.API.Blocks.block-delete-requests :refer :all]
+            [clojurena.API.Search.search-get-requests]
+            [clojurena.API.User.user-get-requests]
             [clojure.java.browse :refer [browse-url]])
   (:gen-class))
 
