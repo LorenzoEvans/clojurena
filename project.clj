@@ -9,4 +9,5 @@
                  [environ "1.1.0"]]
   :main clojurena.core
   :aot clojurena.core
-  :profiles {:uberjar {:aot :all}})
+  :paths ["src" "clojurena"]
+  :profiles {:uberjar {:aot ["clojurena.core"]}})
