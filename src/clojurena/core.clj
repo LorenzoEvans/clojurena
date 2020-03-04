@@ -14,8 +14,7 @@
             [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojurena.API.Search.search-get-requests]
             [clojurena.API.User.user-get-requests]
-            [clojure.java.browse :refer [browse-url]])
-  (:gen-class))
+            [clojure.java.browse :refer [browse-url]]))
 
 (defn -main
   "I don't do a whole lot."

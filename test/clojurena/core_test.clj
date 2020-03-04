@@ -13,8 +13,7 @@
             [clojurena.API.Search.search-get-requests :as search-get]          
             [clojurena.API.Users.user-get-requests :as user-get]          
             [clojurena.API]
-            [clojurena.API])
-  (:gen-class))
+            [clojurena.API]))
             
 ; Block delete tests
 (deftest delete-block
