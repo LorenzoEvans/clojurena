@@ -13,7 +13,7 @@
             [clojurena.API.Blocks.block-put-requests]
             [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojurena.API.Search.search-get-requests]
-            [clojurena.API.User.user-get-requests]
+            [clojurena.API.Users.user-get-requests]
             [clojure.java.browse :refer [browse-url]]))
 
 (defn -main
