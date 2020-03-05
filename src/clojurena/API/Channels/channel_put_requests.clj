@@ -15,7 +15,7 @@
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception))))
 
-(defn update-order [ids]
+(defn update-order [slug ids]
   "Updates the order of a channel according to the order of the id's, expected as a vector"
   (async
     (client/put (str base-url slug "/" "sort") {:async? true

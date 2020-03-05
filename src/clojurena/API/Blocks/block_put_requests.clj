@@ -32,7 +32,7 @@
 
 (defn toggle-block-status [channel-name id status auth]
  "Changes the status of a block, specifically it's connection to a channel."
-  (try (async
-         (client/put (str base-url channel-name "/" "blocks/" id "/" selection) {:oauth-token auth :status status}))
+  (try (utils/async
+         (client/put (str base-url channel-name "/" "blocks/" id "/selection") {:oauth-token auth :status status}))
        (catch Exception e
           (println "Exception Message: " (.getMessage e)))))

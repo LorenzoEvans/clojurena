@@ -10,7 +10,7 @@
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception))))
   
-(defn delete-collaborators [ids]
+(defn delete-collaborators [channel-name ids]
   "Accepts a serialized list of id's, representing collaborators to *keep* in the channel."
   (async
     (client/delete (str base-url channel-name) {:body ids}
