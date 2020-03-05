@@ -9,6 +9,11 @@
 
 (def channel-base-url "https://api.are.na/v2/channels/")
 (def block-base-url "http://api.are.na/v2/blocks/")
+(def base-search-url "https://api.are.na/v2/search?q=")
+(def user-search-url "https://api.are.na/v2/search/users?q=")
+(def channel-search-url "https://api.are.na/v2/search/channels?q=")
+(def block-search-url "https://api.are.na/v2/search/blocks?q=")
+
 (defn async [request]
     (try
      (.get request 10 TimeUnit/SECONDS)
