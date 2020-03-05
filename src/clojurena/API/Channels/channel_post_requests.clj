@@ -32,7 +32,9 @@
   ([channel-name source auth]))
   
 (defn post-media-block-to-channel [channel-name source auth]
- "Posts a media block to a specific channel, identical to post-media-block.")
+ "Posts a media block to a specific channel, identical to post-media-block."
+ (post-media-block channel-name source auth))
  
 (defn post-text-block-to-channel [channel-name content auth]
- "Posts a text block to a specific channel, identical to post-text-block.")
+ "Posts a text block to a specific channel, identical to post-text-block."
+ (post-text-block channel-name content auth))
