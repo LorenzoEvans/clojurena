@@ -8,7 +8,6 @@
   "Updates the contents/attributes of a block. Assumes content and id." 
   ([content id auth] (try (utils/async 
                        (client/put (str base-url "blocks" id) {:async? true 
-                                                               :coerce always
                                                                :id id
                                                                :oauth-token auth
                                                                :content content}))
@@ -16,7 +15,6 @@
                       (println "Exception Message: " (.getMessage e)))))
   ([content id title auth] (try (utils/async
                               (client/put (str base-url "blocks" id) {:async? true
-                                                                      :coerce always
                                                                       :id id
                                                                       :oauth-token auth
                                                                       :content content
@@ -25,7 +23,6 @@
                               (println "Exception Message: " (.getMessage e)))))
   ([content id title description auth] (try (utils/async
                                          (client/put (str base-url "blocks" id) {:async? true
-                                                                                 :coerce always
                                                                                  :id id
                                                                                  :content content
                                                                                  :title title

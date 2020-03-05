@@ -19,6 +19,6 @@
     (async
       (client/post (str base-url channel-name "/blocks") {:async? true
                                                           :oauth-token auth
-                                                          :content source}))
+                                                          :source source}))
       (catch Exception e
         (println "Exception message: " (.getMessage e)))))
