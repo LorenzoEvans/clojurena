@@ -16,7 +16,7 @@
     "Returns a paginated list of channels a specified block exists in, does not require authentication, does have pagination."
     (try
       (utils/async
-        (client/get (str base-url block-id) {:async? true}))
+        (client/get (str utils/channel-base-url block-id) {:async? true}))
       (catch Exception e
         (println "Exception Message: " (.getMessage e)))))
          

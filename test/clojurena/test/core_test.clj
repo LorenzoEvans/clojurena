@@ -1,4 +1,4 @@
-(ns core-test
+(ns clojurena.test.core-test
   (:require [clojure.test :refer :all]
             [clj-http.client :as client]
             [environ.core :as

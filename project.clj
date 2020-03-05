@@ -7,9 +7,7 @@
                  [clj-http "3.10.0"]
                  [org.clojure/data.json "0.2.6"]
                  [environ "1.1.0"]
-                 [org.apache.logging.log4j/log4j-api "2.11.0"]
-                 [org.apache.logging.log4j/log4j-core "2.11.0"]
-                 [org.apache.logging.log4j/log4j-1.2-api "2.11.0"]]
+                 [com.fzakaria/slf4j-timbre "0.3.19"]]
   :main clojurena.core
   :aot clojurena.core
   :paths ["src" "clojurena"]
