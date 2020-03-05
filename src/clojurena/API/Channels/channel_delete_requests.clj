@@ -4,15 +4,18 @@
            [clojurena.API.utils :refer [async]]))
 
 (defn delete-channel [channel-name]
- "Deletes a specified channel"
-  (async
-    (client/delete (str base-url channel-name)
-      (fn [response] (println "Response is: " response) response)
-      (fn [exception] (println "Exception is: " exception) exception))))
+ "Deletes a specified channel, requires authentication."
+  (try
+    (async
+      (client/delete (str base-url channel-name)))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))  
   
 (defn delete-collaborators [channel-name ids]
-  "Accepts a serialized list of id's, representing collaborators to *keep* in the channel."
-  (async
-    (client/delete (str base-url channel-name) {:body ids}
-      (fn [response] (println "Response is: " response) response))))
+  "Accepts a serialized list of id's, representing collaborators to *keep* in the channel, requires authentication."
+  (try
+    (async
+      (client/delete (str base-url channel-name) {:body ids}))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))  
   

@@ -10,10 +10,11 @@
 
 (defn get-single-channel [channel-name]
 	"Returns contents of specified channel, can be paginated."
-	(async
-		(client/get (str base-url channel-name) {:async? true}
-		 (fn [response] (println "Response is: " response) response)
-		 (fn [exception] (println "Exception is: " exception) exception))))
+  (try
+    (async
+      (client/get (str base-url channel-name) {:async? true}))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-thumb [channel-name]
  "Returns a 9 block representation of a specified channel."
