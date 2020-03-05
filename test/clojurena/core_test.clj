@@ -39,7 +39,8 @@
 ; toggle-block-status
 
 ; Block posts tests TBD
-; post-block
+; post-text-block
+; post-media-block
 
 ; Take advantage of fixtures for destructive tests.
 ; How are we going to allow users to properly authenticate themselves

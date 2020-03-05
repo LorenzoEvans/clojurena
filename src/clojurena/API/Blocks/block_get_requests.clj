@@ -7,15 +7,18 @@
 
 (defn get-block-by-id [block-id]
     "Returns the full representation of a block, id is an numeric string, does not require authentication."
-    (async
-        (client/get (str base-url block-id) {:async? true}
-         (fn [response] (println "Response is: " response))
-         (fn [exception] (println "Exception is: " exception)))))
+    (try
+      (async
+        (client/get (str base-url block-id) {:async? true}))
+      (catch Exception e
+        (println "Exception Message: " (.getMessage e)))))
+
 
 (defn get-blocks-channels [block-id]
     "Returns a paginated list of channels a specified block exists in, does not require authentication, does have pagination."
-    (async
-        (client/get (str base-url block-id) {:async? true}
-           (fn [response] (println "Response is: " response))
-           (fn [exception] (println "Exception is: " exception)))))
+    (try
+      (async
+        (client/get (str base-url block-id) {:async? true}))
+      (catch Exception e
+        (println "Exception Message: " (.getMessage e)))))
          
