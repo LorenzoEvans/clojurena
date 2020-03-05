@@ -13,6 +13,7 @@
 (def user-search-url "https://api.are.na/v2/search/users?q=")
 (def channel-search-url "https://api.are.na/v2/search/channels?q=")
 (def block-search-url "https://api.are.na/v2/search/blocks?q=")
+(def user-base-url "https://api.are.na/v2/users/")
 
 (defn async [request]
     (try
