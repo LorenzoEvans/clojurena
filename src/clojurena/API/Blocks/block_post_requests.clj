@@ -4,26 +4,21 @@
               [clojurena.API.utils :refer [async]] ; [clojurena.API.utils :as utils] => utils/async 
               [clojurena.API.Channels.channel-get-requests :refer [base-url]])) 
 
-(defn post-block [channel-name source auth content & args] ; user, pass => args
-    "Posts a block to the specified channel, requires authentication, use source *or* content, not both."
-  (let [arg-map {:channel-name channel-name 
-                   :source source 
-                   :auth auth 
-                   :content (if (not= content nil) content) 
-                   :user-pw-vec (if (and (:user args) (:pass args)) [(:user args) (:pass args)])}]
+(defn post-text-block [channel-name content auth]
+  "Posts a block to the specified channel, requires authentication, use source *or* content, not both."
+  (try
+    (async 
+      (client/post (str base-url channel-name "/blocks") {:async? true 
+                                                          :oauth-token auth
+                                                          :content content}))
+      (catch Exception e
+        (println "Exception message: " (.getMessage e)))))
+
+(defn post-media-block [channel-name source auth]
+  (try 
     (async
-      (client/post (str base-url channel-name "/blocks") {:async? true}
-        (cond ; we should refactor this again, for better handling of condition possibilities.
-          (not= (:source arg-map) nil) {:oauth-token (:auth arg-map) 
-                                        :source (:source arg-map)
-                                        :coerce :always}
-          (= source nil) {:oauth-token (:auth arg-map) 
-                                :content (:content arg-map)
-                                :coerce :always}
-          (and (not= (:user-pw-vec arg-map) nil) 
-               (or source content)) {:basic-auth [(first (:user-pw-vec arg-map)) ; don't use first to unpack tuples (is a binary vector a tuple?) => (get list 0)
-                                                  (fnext (:user-pw-vec arg-map))]
-                                     :content (:content arg-map)
-                                     :coerce :always}
-         (fn [response] (println "Response is: " response) response)
-         (fn [exception] (println "Exception is: " exception) exception)))))) 
+      (client/post (str base-url channel-name "/blocks") {:async? true
+                                                          :oauth-token auth
+                                                          :content content}))
+      (catch Exception e
+        (println "Exception message: " (.getMessage e)))))
