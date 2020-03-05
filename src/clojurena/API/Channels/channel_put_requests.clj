@@ -1,17 +1,16 @@
 (ns clojurena.API.Channels.channel-put-requests
  (:require [clj-http.client :as client]
            [clojure.string :as str]
-           [clojurena.API.utils :refer [async]]
-           [clojurena.API.Blocks.block-put-requests :refer [toggle-block-status]]))
+           [clojurena.API.utils :as utils]
+           [clojurena.API.Blocks.block-put-requests :as block-puts]))
 
-(def base-url "https://api.are.na/v2/channels/")
 
-(defn update-channel-attributes [slug status]
+(defn update-channel-attributes [slug status title]
   "Updates the contents of a channel"
-  (async
-    (client/put (str base-url slug) {:async? true
-                                     :status status
-                                     :title slug}
+  (utils/async
+    (client/put (str utils/channel-base-url slug) {:async? true
+                                                   :status status
+                                                   :title title}
       (fn [response] (println "Response is: " response) response)
       (fn [exception] (println "Exception is: " exception) exception))))
 

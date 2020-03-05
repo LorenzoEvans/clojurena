@@ -1,47 +1,50 @@
 (ns clojurena.API.Channels.channel-get-requests
  (:require [clj-http.client :as client]
 		   [clojure.string :as str]
-		   [clojurena.API.utils :refer [async app-id cb-url app-secret]])) ; require entire utils ns as utils         
+		   [clojurena.API.utils :as utils])) ; require entire utils ns as utils         
 
-(def base-url "https://api.are.na/v2/channels/")
 (def all-public-channels
   "Returns all public channels. May be a large amount of data, so be careful/patient." 
-	(client/get base-url))
+	(client/get utils/channel-base-url))
 
 (defn get-single-channel [channel-name]
 	"Returns contents of specified channel, can be paginated."
   (try
-    (async
-      (client/get (str base-url channel-name) {:async? true}))
+    (utils/async
+      (client/get (str utils/channel-base-url channel-name) {:async? true}))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-thumb [channel-name]
  "Returns a 9 block representation of a specified channel."
- (async
-	(client/get (str base-url channel-name "/" "thumb") {:async? true}
-	 (fn [response] (println "Response is: " response) response)
-	 (fn [exception] (println "Exception is: " exception) exception))))
+ (try
+  (utils/async
+    (client/get (str utils/channel-base-url channel-name "/" "thumb") {:async? true}))
+  (catch Exception e
+    (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-connections [channel-name]
  "Returns a collection all of the connections a specified channel has, sans contents, can be paginated."
-	(async 
-		(client/get (str base-url channel-name "/" "connections") {:async? true}
-		 (fn [response] (println "Response is: " response) response)
-		 (fn [exception] (println "Exception is: " exception) exception))))
+  (try 
+    (utils/async 
+      (client/get (str utils/channel-base-url channel-name "/" "connections") {:async? true}))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))
 
 (defn get-connected-channels [channel-name]
 	"Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
-	(async
-	  (client/get (str base-url channel-name "/" "channels")
-	   (fn [response] (println "Response is: " response) response)
-	   (fn [exception] (println "Exception is: " exception) exception))))
+  (try
+    (utils/async
+      (client/get (str utils/channel-base-url channel-name "/" "channels")))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-contents [channel-name]
   "Returns a list of channel contents, sans collaborators."
-  (async
-    (client/get (str base-url channel-name "/" "contents")
-    (fn [response] (println "Response is: " response) response)
-    (fn [exception] (println "Exception is: " exception) exception))))
+  (try
+    (utils/async
+      (client/get (str utils/channel-base-url channel-name "/" "contents")))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))
 
 

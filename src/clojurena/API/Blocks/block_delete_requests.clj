@@ -1,18 +1,16 @@
 (ns clojurena.API.Blocks.block-delete-requests
     (:require [clj-http.client :as client]
               [clojure.string :as str]
-              [clojurena.API.utils :refer [async]]
-              [clojurena.API.Channels.channel-get-requests :refer [base-url get-single-channel]])) 
-
-(def default-url "https://api.are.na/v2/channel/")
+              [clojurena.API.utils :as utils]
+              [clojurena.API.Channels.channel-get-requests :as channel-get])) 
          
 (defn delete-block [slug channel-id block-id auth]
   "Deletes/removes connection between a block and channel, requires authentication"
-  (let [channel-id (:id (get-single-channel slug))]
+  (let [channel-id (:id (channel-get/get-single-channel slug))]
    (try
-    (async 
-      (client/delete (str default-url slug "/" channel-id "/" "blocks" "/" block-id) {:async? true
-                                                                                      :oauth auth})))))
+    (utils/async 
+      (client/delete (str utils/channel-base-url slug "/" channel-id "/" "blocks" "/" block-id) {:async? true
+                                                                                                 :oauth auth})))))
     
 
 ; currently having trouble pulling channel ID

@@ -7,6 +7,8 @@
 ; Re-using them the way we are currently works, but it may link dependencies throughout parts of
 ; the library in a way that will be problematic over time, i.e changing the channel base-url affecting block level http requests.
 
+(def channel-base-url "https://api.are.na/v2/channels/")
+(def block-base-url "http://api.are.na/v2/blocks/")
 (defn async [request]
     (try
      (.get request 10 TimeUnit/SECONDS)
