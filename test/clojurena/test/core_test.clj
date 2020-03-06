@@ -1,7 +1,8 @@
 (ns clojurena.test.core-test
   (:require [clojure.test :refer :all]
             [clj-http.client :as client]
-            [environ.core :as
+            [environ.core :refer [env]]
+            [clojurena.test.test-utils :as t-utils]
             [clojurena.API.Blocks.block-delete-requests :as block-del]
             [clojurena.API.Blocks.block-get-requests :as block-get]
             [clojurena.API.Blocks.block-put-requests :as block-put]
@@ -11,24 +12,22 @@
             [clojurena.API.Channels.channel-put-requests :as channel-put]
             [clojurena.API.Channels.channel-post-requests :as channel-post]
             [clojurena.API.Search.search-get-requests :as search-get]          
-            [clojurena.API.Users.user-get-requests :as user-get]          
-            [clojurena.API]
-            [clojurena.API]))
+            [clojurena.API.Users.user-get-requests :as user-get]))
             
 ; Block delete tests
-(deftest delete-block
-  (testing "Ability to delete blocks from specified channels"
-    (is (= (:status (block-del/delete-block "geosymgif" "549706" (env :access-token)))))))
+; (deftest delete-block
+;   (testing "Ability to delete blocks from specified channels"
+;     (is (= (:status (block-del/delete-block "Clojurena-test" "5967619" t-utils/auth-token)) 200))))
 
 
 ; Block get tests
 (deftest get-block-by-id-test
   (testing "Ability to retrieve individual blocks"
-    (is (= (:status (block-get/get-block-by-id base-url "5967619")) 200))))
+    (is (= (:status (block-get/get-block-by-id 't-utils/block-base-url "5967619")) 200))))
 
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
-    (is (= (:status (block-get/get-block-by-id-test base-url "5967619"))))))
+    (is (= (:status (block-get/get-block-by-id-test 't-utils/block-base-url "5967619")) 200))))
 
 (deftest block-get-tests
   (get-block-by-id-test)
@@ -153,12 +152,12 @@
 
 (deftest get-follows-test 
   (testing "Ability to retrieve channels/users an account is following"
-    (is (= (:status (user-get/get-follows "17"))))))
+    (is (= (:status (user-get/get-follows "17")) 200))))
 
 
 (deftest get-followers-test
   (testing "Ability to retrieve channels/users an account is following"
-    (is (= (:status (user-get/get-followers "17"))))))
+    (is (= (:status (user-get/get-followers "17")) 200))))
 
 (deftest user-get-tests
   (get-user-test)

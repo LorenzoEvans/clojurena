@@ -10,5 +10,7 @@
                  [com.fzakaria/slf4j-timbre "0.3.19"]]
   :main clojurena.core
   :aot clojurena.core
-  :paths ["src" "clojurena"]
-  :profiles {:uberjar {:aot ["clojurena.core"]}})
+  :paths ["src" "clojurena" "test"]
+  :profiles {:dev {:dependencies [[midje "1.6.0" :exclusions [org.clojure/clojure]]]
+                   :plugins [[lein-midje "3.2.1"]]}
+             :uberjar {:aot ["clojurena.core"]}})
