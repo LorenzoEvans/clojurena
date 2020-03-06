@@ -22,16 +22,25 @@
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
+; (defn search-channels [term]
+;   "Searches the are.na system for channels that match the query."
+;   (try
+;     (utils/async
+;      (client/get (str utils/channel-search-url) {:async? true
+;                                                  :query-params {:q [term]}}
+;       (fn [response] (println "Response is: " response) response)
+;       (fn [exception] (println "Exception is: " exception) exception)))
+;     (catch Exception e
+;       (println "Exception Message: " (.getMessage e)))))
+
 (defn search-channels [term]
-  "Searches the are.na system for channels that match the query."
-  (try
-    (utils/async
-     (client/get (str utils/channel-search-url) {:async? true
-                                                 :query-params {:q [term]}}))
-    (catch Exception e
-      (println "Exception Message: " (.getMessage e)))))
-
-
+  (utils/async
+    (try (client/get (str utils/channel-search-url) {:async? true
+                                                     :query-params {:q [term]}}
+          (fn [response] (println "Response is: " response) response)
+          (fn [exception] (println "Exception is: " exception) exception))
+         (catch Exception e
+          (println "Exception Message is: " (.getMessage e))))))
 (defn search-blocks [term]
  "Searches the are.na system for channels that match the query."
  (try 
