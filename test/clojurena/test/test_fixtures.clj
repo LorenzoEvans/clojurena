@@ -1,1 +1,1 @@
-(ns clojujrena.test.test-fixtures)
+(ns clojurena.test.test-fixtures)
