@@ -1,3 +1,3 @@
-(ns test-data.correct-data)
+(ns clojurena.test.test-data.correct-data)
 
 

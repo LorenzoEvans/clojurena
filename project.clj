@@ -9,5 +9,5 @@
                  [environ "1.1.0"]
                  [com.fzakaria/slf4j-timbre "0.3.19"]]
   :main clojurena.core
-  :paths ["src" "clojurena" "test" "test"]
+  :paths ["src" "clojurena" "test"]
   :profiles {:uberjar {:aot :all}})

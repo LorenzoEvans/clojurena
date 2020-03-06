@@ -1,7 +1,8 @@
-(ns clojurena.test.test_utils
+(ns clojurena.test.test-utils
   (:require [environ.core :refer [env]]
             [clojure.string :as str])
-  (:import (java.util.concurrent TimeoutException TimeUnit)))
+  (:import (java.util.concurrent TimeoutException TimeUnit))
+  (:gen-class))
 
 
 (def channel-base-url "https://api.are.na/v2/channels/")
