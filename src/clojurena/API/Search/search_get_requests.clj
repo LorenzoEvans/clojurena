@@ -8,8 +8,8 @@
   "Searches the entire are.na system for blocks, users and channels matching the query."
   (try
     (utils/async
-     (client/get utils/base-search-url {:query-params {:q [term]}})))
-    (catch Exception e
+     (client/get utils/base-search-url {:query-params {:q [term]}}))
+   (catch Exception e
       (println "Exception Message :" (.getMessage e)))))
   
 (defn search-users [term]
@@ -17,8 +17,8 @@
   (try
     (utils/async
       (client/get utils/user-search-url {:query-params {:q [term]}
-                                         :throw-entire-message? true})))
-    (catch Exception e
+                                         :throw-entire-message? true}))
+   (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
 (defn search-channels [term]
@@ -26,8 +26,8 @@
   (try
     (utils/async
      (client/get utils/channel-search-url {:query-params {:q [term]}
-                                           :throw-entire-message? true})))
-    (catch Exception e
+                                           :throw-entire-message? true}))
+   (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
 (defn search-blocks [term]
