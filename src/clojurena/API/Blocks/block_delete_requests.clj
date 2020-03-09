@@ -9,8 +9,7 @@
   (let [channel-id (:id (channel-get/get-single-channel slug))]
    (try
     (utils/async 
-      (client/delete (str utils/channel-base-url slug "/" channel-id "/" "blocks" "/" block-id) {:async? true
-                                                                                                 :oauth auth})))))
+      (client/delete (str utils/channel-base-url slug "/" channel-id "/" "blocks" "/" block-id) {:oauth auth})))))
     
 
 ; currently having trouble pulling channel ID

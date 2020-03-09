@@ -14,7 +14,7 @@
   "Accepts a serialized list of id's, representing collaborators to *keep* in the channel, requires authentication."
   (try
     (utils/async
-      (client/delete (str utils/channel-base-url channel-name) {:body ids}))
+      (client/delete (str utils/channel-base-url channel-name)))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))  
   

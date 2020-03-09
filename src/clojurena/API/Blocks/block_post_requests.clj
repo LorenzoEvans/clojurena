@@ -7,8 +7,7 @@
   "Posts a block to the specified channel, requires authentication, use source *or* content, not both."
   (try
     (utils/async 
-      (client/post (str utils/channel-base-url channel-name "/blocks") {:async? true 
-                                                                        :oauth-token auth
+      (client/post (str utils/channel-base-url channel-name "/blocks") {:oauth-token auth
                                                                         :content content}))
       (catch Exception e
         (println "Exception message: " (.getMessage e)))))

@@ -11,7 +11,7 @@
 	"Returns contents of specified channel, can be paginated."
   (try
     (utils/async
-      (client/get (str utils/channel-base-url channel-name) {:async? true}))
+      (client/get (str utils/channel-base-url channel-name)))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
@@ -19,7 +19,7 @@
  "Returns a 9 block representation of a specified channel."
  (try
   (utils/async
-    (client/get (str utils/channel-base-url channel-name "/" "thumb") {:async? true}))
+    (client/get (str utils/channel-base-url channel-name "/" "thumb")))
   (catch Exception e
     (println "Exception Message: " (.getMessage e)))))
 
@@ -27,7 +27,7 @@
  "Returns a collection all of the connections a specified channel has, sans contents, can be paginated."
   (try 
     (utils/async 
-      (client/get (str utils/channel-base-url channel-name "/" "connections") {:async? true}))
+      (client/get (str utils/channel-base-url channel-name "/" "connections")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 

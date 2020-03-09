@@ -8,7 +8,7 @@
   "Searches the entire are.na system for blocks, users and channels matching the query."
   (try
     (utils/async
-     (client/get (str utils/base-search-url) {:query-params {:q [term]}}))
+     (client/get utils/base-search-url {:query-params {:q [term]}})))
     (catch Exception e
       (println "Exception Message :" (.getMessage e)))))
   
@@ -16,7 +16,8 @@
   "Searches the are.na system for users that match the query."
   (try
     (utils/async
-      (client/get (str utils/user-search-url) {:query-params {:q [term]}}))
+      (client/get utils/user-search-url {:query-params {:q [term]}
+                                         :throw-entire-message? true})))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
@@ -24,7 +25,8 @@
   "Searches the are.na system for channels that match the query."
   (try
     (utils/async
-     (client/get (str utils/channel-search-url) {:query-params {:q [term]}}))
+     (client/get utils/channel-search-url {:query-params {:q [term]}
+                                           :throw-entire-message? true})))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
@@ -32,7 +34,8 @@
  "Searches the are.na system for channels that match the query."
  (try 
   (utils/async
-   (client/get (str utils/block-search-url) {:async? true
-                                             :query-params {:q [term]}}))
+   (client/get utils/block-search-url {:async? true
+                                       :throw-entire-message? true
+                                       :query-params {:q [term]}}))
   (catch Exception e
     (println "Exception Message: " (.getMessage e)))))

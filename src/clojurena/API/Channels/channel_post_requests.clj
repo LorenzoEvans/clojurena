@@ -10,7 +10,6 @@
   (try
     (utils/async
       (client/post utils/channel-base-url {:title channel-name
-                                           :async? true
                                            :status status}))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
@@ -19,8 +18,7 @@
  "Returns collaborators of a given channel, requires authentication."
   (try
     (utils/async
-      (client/post (str utils/channel-base-url channel-name "/" "collaborators") {:body ids
-                                                                                  :async? true}))
+      (client/post (str utils/channel-base-url channel-name "/" "collaborators") {:body ids}))
     (catch Exception e
       (println "Exception Message: " (.getMessage e))))) 
   

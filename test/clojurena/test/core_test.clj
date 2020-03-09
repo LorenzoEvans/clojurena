@@ -121,12 +121,12 @@
 
 
 (deftest search-channels-test
-  (testing "Ability to search are.na for users."
-    (is (= (:status (search-get/search-channels "history")) 200))))
+  (testing "Ability to search are.na for channels"
+    (is (= (:status (search-get/search-channels "geosymgif")) 200))))
 
 
 (deftest search-blocks-test
-  (testing "Ability to search are.na for users."
+  (testing "Ability to search are.na for blocks."
     (is (= (:status (search-get/search-blocks "history")) 200))))
 
 
