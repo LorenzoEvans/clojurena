@@ -16,8 +16,7 @@
 (defn post-media-block [channel-name source auth]
   (try 
     (utils/async
-      (client/post (str utils/channel-base-url channel-name "/blocks") {:async? true
-                                                                        :oauth-token auth
+      (client/post (str utils/channel-base-url channel-name "/blocks") {:oauth-token auth
                                                                         :source source}))
       (catch Exception e
         (println "Exception message: " (.getMessage e)))))

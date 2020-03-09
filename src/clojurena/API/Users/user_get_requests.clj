@@ -8,7 +8,7 @@
  "Returns a representation of a user object."
   (try
     (utils/async
-     (client/get (str utils/user-base-url id) {:async? true}))
+     (client/get (str utils/user-base-url id)))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
@@ -16,7 +16,7 @@
  "Returns a specified user channel."
   (try
     (utils/async
-     (client/get (str utils/user-base-url id "/" "channel") {:async? true}))
+     (client/get (str utils/user-base-url id "/" "channel")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
@@ -24,7 +24,7 @@
   "Returns a list of a users channels."
   (try
     (utils/async
-     (client/get (str utils/user-base-url id "/" "channels") {:async? true}))
+     (client/get (str utils/user-base-url id "/" "channels")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
@@ -32,7 +32,7 @@
  "Returns a list of channels and users a specified user is following."
   (try
     (utils/async
-     (client/get (str utils/user-base-url id "/" "following") {:async? true}))
+     (client/get (str utils/user-base-url id "/" "following")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
@@ -40,7 +40,7 @@
   "Returns a list of users following a specified user."
   (try
     (utils/async
-      (client/get (str utils/user-base-url id "/" "followers") {:async? true}))
+      (client/get (str utils/user-base-url id "/" "followers")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
   

@@ -8,8 +8,7 @@
   "Searches the entire are.na system for blocks, users and channels matching the query."
   (try
     (utils/async
-     (client/get (str utils/base-search-url) {:async? true
-                                              :query-params {:q [term]}}))
+     (client/get (str utils/base-search-url) {:query-params {:q [term]}}))
     (catch Exception e
       (println "Exception Message :" (.getMessage e)))))
   
@@ -17,30 +16,18 @@
   "Searches the are.na system for users that match the query."
   (try
     (utils/async
-      (client/get (str utils/user-search-url) {:async? true
-                                               :query-params {:q [term]}}))
+      (client/get (str utils/user-search-url) {:query-params {:q [term]}}))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
       
-; (defn search-channels [term]
-;   "Searches the are.na system for channels that match the query."
-;   (try
-;     (utils/async
-;      (client/get (str utils/channel-search-url) {:async? true
-;                                                  :query-params {:q [term]}}
-;       (fn [response] (println "Response is: " response) response)
-;       (fn [exception] (println "Exception is: " exception) exception)))
-;     (catch Exception e
-;       (println "Exception Message: " (.getMessage e)))))
-
 (defn search-channels [term]
-  (utils/async
-    (try (client/get (str utils/channel-search-url) {:async? true
-                                                     :query-params {:q [term]}}
-          (fn [response] (println "Response is: " response) response)
-          (fn [exception] (println "Exception is: " exception) exception))
-         (catch Exception e
-          (println "Exception Message is: " (.getMessage e))))))
+  "Searches the are.na system for channels that match the query."
+  (try
+    (utils/async
+     (client/get (str utils/channel-search-url) {:query-params {:q [term]}}))
+    (catch Exception e
+      (println "Exception Message: " (.getMessage e)))))
+
 (defn search-blocks [term]
  "Searches the are.na system for channels that match the query."
  (try 
