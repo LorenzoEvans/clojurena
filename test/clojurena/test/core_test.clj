@@ -29,9 +29,9 @@
   (testing "Ability to retrieve list of channels a block exists in."
     (is (= (:status (block-get/get-block-by-id t-utils/block-base-url "5967619")) 200))))
 
-(deftest block-get-tests
-  (get-block-by-id-test)
-  (get-blocks-channels-test))
+; (deftest block-get-tests
+;   (get-block-by-id-test)
+;   (get-blocks-channels-test))
 
 ; Block put tests TBD
 ; put-block
@@ -88,13 +88,13 @@
   (testing "Ability to retrieve single channel."
     (is (= (:status (channel-get/get-channel-contents "geosymgif")) 200))))
 
-(deftest channel-get-tests
-  (get-all-channels-test)
-  (get-single-channel-test)
-  (get-channel-thumb-test)
-  (get-channel-connections-test)
-  (get-connected-channels-test)
-  (get-channel-contents-test))
+; (deftest channel-get-tests
+;   (get-all-channels-test)
+;   (get-single-channel-test)
+;   (get-channel-thumb-test)
+;   (get-channel-connections-test)
+;   (get-connected-channels-test)
+;   (get-channel-contents-test))
 
 
 ; Channel Post tests TBD
@@ -130,11 +130,11 @@
     (is (= (:status (search-get/search-blocks "history")) 200))))
 
 
-(deftest search-get-tests
-  (search-test)
-  (search-users-test)
-  (search-channels-test)
-  (search-blocks-test))
+; (deftest search-get-tests
+;   (search-test)
+;   (search-users-test)
+;   (search-channels-test)
+;   (search-blocks-test))
 
 
 ; User get tests
@@ -150,15 +150,12 @@
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (user-get/get-follows "17")) 200))))
 
-
 (deftest get-followers-test
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (user-get/get-followers "17")) 200))))
 
-(deftest user-get-tests
-  (get-user-test)
-  (get-user-channels-test)
-  (get-follows-test)
-  (get-followers-test))
-
-(run-tests)
+; (deftest user-get-tests
+;   (get-user-test)
+;   (get-user-channels-test)
+;   (get-follows-test)
+;   (get-followers-test))
