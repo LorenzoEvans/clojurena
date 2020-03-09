@@ -8,25 +8,19 @@
  "Returns a representation of a user object."
   (try
     (utils/async
-     (client/get (str utils/user-base-url id)))
+     (client/get (str utils/user-base-url id) {:async? true}))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
-(defn get-user-channel [id]
- "Returns a specified user channel."
-  (try
-    (utils/async
-     (client/get (str utils/user-base-url id "/" "channel")))
-    (catch Exception e
-      (println "Exception Message: " (.getMessage e)))))
 
 (defn get-user-channels [id]
   "Returns a list of a users channels."
-  (try
-    (utils/async
-     (client/get (str utils/user-base-url id "/" "channels")))
-    (catch Exception e
-      (println "Exception Message: " (.getMessage e)))))
+  (let [url (str utils/channel-base-url id)]
+    (try
+      (utils/async
+        (client/get url))
+      (catch Exception e
+        (println "Exception Message: " (.getMessage e))))))
       
 (defn get-follows [id]
  "Returns a list of channels and users a specified user is following."
