@@ -4,7 +4,7 @@
             [clj-http.client :as client]
             [clojurena.API.Authentication.auth]
             [environ.core :refer [env]]
-            [clojurena.API.Channels.channel-get-requests]
+            [clojurena.API.Channels.channel-get-requests :as channel-get]
             [clojurena.API.Channels.channel-post-requests]
             [clojurena.API.Channels.channel-put-requests]
             [clojurena.API.Channels.channel-delete-requests]
@@ -13,16 +13,23 @@
             [clojurena.API.Blocks.block-put-requests]
             [clojurena.API.Blocks.block-delete-requests :refer :all]
             [clojurena.API.Search.search-get-requests]
-            [clojurena.API.Users.user-get-requests]
+            [clojurena.API.Users.user-get-requests :as user-get]
             [clojure.java.browse :refer [browse-url]]))
 
 (defn -main
   "I don't do a whole lot."
   []
-  (println "Hello, World!"))
+  )
 
 ; (def deltest
 ;   (delete-block "Clojurena-test" "5967619" (env :access-token)))
+
+(def channel-get-test
+  (channel-get/get-single-channel "b-w-ia_z787i4aw"))
+(println (:status channel-get-test))
+; (def user-get-test
+;   (user-get/get-user "17"))
+; (println "user get is: " user-get-test)
 ; (println channel)
 ; (println  block)
 ; (println auth-data)

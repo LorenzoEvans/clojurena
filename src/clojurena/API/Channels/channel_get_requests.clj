@@ -10,24 +10,21 @@
 (defn get-single-channel [channel-name]
 	"Returns contents of specified channel, can be paginated."
   (try
-    (utils/async
-      (client/get (str utils/channel-base-url channel-name)))
-    (catch Exception e
+    (client/get (str utils/channel-base-url channel-name))
+   (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-thumb [channel-name]
  "Returns a 9 block representation of a specified channel."
  (try
-  (utils/async
-    (client/get (str utils/channel-base-url channel-name "/" "thumb")))
+    (client/get (str utils/channel-base-url channel-name "/" "thumb"))
   (catch Exception e
     (println "Exception Message: " (.getMessage e)))))
 
 (defn get-channel-connections [channel-name]
  "Returns a collection all of the connections a specified channel has, sans contents, can be paginated."
   (try 
-    (utils/async 
-      (client/get (str utils/channel-base-url channel-name "/" "connections")))
+      (client/get (str utils/channel-base-url channel-name "/" "connections"))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
