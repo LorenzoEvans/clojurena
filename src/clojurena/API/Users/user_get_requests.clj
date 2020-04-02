@@ -18,7 +18,7 @@
   (let [url (str utils/channel-base-url id)]
     (try
       (utils/async
-        (client/get url {:async? false}))
+        (client/get url))
       (catch Exception e
         (println "Exception Message: " (.getMessage e))))))
       

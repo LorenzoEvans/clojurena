@@ -27,7 +27,7 @@
 
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
-    (is (= (:status (block-get/get-block-by-id t-utils/block-base-url "5967619")) 200))))
+    (is (= (:status (block-get/get-blocks-channels "5967619")) 200))))
 
 ; (deftest block-get-tests
 ;   (get-block-by-id-test)
