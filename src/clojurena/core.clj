@@ -27,10 +27,10 @@
 (def channel-get-test
   (channel-get/get-single-channel "b-w-ia_z787i4aw"))
 
-(def connected-channels
-  (channel-get/get-connected-channels "b-w-ia_z787i4aw"))
-; (println channel-get-test)
-(println connected-channels)
+(println (:id (json/read-str (:body channel-get-test) :key-fn keyword))) ; this is IT BRO!!!
+; (def connected-channels
+;   (channel-get/get-connected-channels "b-w-ia_z787i4aw"))
+; (println connected-channels)
 ; (def user-get-test
 ;   (user-get/get-user "17"))
 ; (println "user get is: " user-get-test)
