@@ -28,6 +28,6 @@
 (defn search-blocks [term]
  "Searches the are.na system for channels that match the query."
  (try 
-   (client/get utils/block-search-url {:async? true :query-params {:q [term]}})
+   (client/get utils/block-search-url {:query-params {:q [term]}})
   (catch Exception e
     (println "Exception Message: " (.getMessage e)))))

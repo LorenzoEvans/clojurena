@@ -27,7 +27,7 @@
 
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."
-    (is (= (:status (block-get/get-blocks-channels "5967619")) 200))))
+    (is (= (:status (block-get/get-blocks-channels "11236")) 200))))
 
 ; (deftest block-get-tests
 ;   (get-block-by-id-test)
@@ -70,23 +70,23 @@
 
 (deftest get-single-channel-test
   (testing "Ability to retrieve single channel."
-    (is (= (:status (channel-get/get-single-channel "geosymgif")) 200))))
+    (is (= (:status (channel-get/get-single-channel "b-w-ia_z787i4aw")) 200))))
 
 (deftest get-channel-thumb-test
   (testing "Ability to retrieve single channel."
-    (is (= (:status (channel-get/get-channel-thumb "geosymgif")) 200))))
+    (is (= (:status (channel-get/get-channel-thumb "b-w-ia_z787i4aw")) 200))))
 
 (deftest get-channel-connections-test
   (testing "Ability to retrieve single channel."
-    (is (= (:status (channel-get/get-channel-connections "geosymgif")) 200))))
+    (is (= (:status (channel-get/get-channel-connections "b-w-ia_z787i4aw")) 200))))
 
 (deftest get-connected-channels-test
   (testing "Ability to retrieve single channel."
-    (is (= (:status (channel-get/get-connected-channels "geosymgif")) 200))))
+    (is (= (:status (channel-get/get-connected-channels "b-w-ia_z787i4aw")) 200))))
 
 (deftest get-channel-contents-test
   (testing "Ability to retrieve single channel."
-    (is (= (:status (channel-get/get-channel-contents "geosymgif")) 200))))
+    (is (= (:status (channel-get/get-channel-contents "b-w-ia_z787i4aw")) 200))))
 
 ; (deftest channel-get-tests
 ;   (get-all-channels-test)

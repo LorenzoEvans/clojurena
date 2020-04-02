@@ -26,7 +26,7 @@
 
 (def channel-get-test
   (channel-get/get-single-channel "b-w-ia_z787i4aw"))
-(println (:status channel-get-test))
+(println channel-get-test)
 ; (def user-get-test
 ;   (user-get/get-user "17"))
 ; (println "user get is: " user-get-test)

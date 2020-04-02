@@ -10,7 +10,7 @@
 (defn get-single-channel [channel-name]
 	"Returns contents of specified channel, can be paginated."
   (try
-    (client/get (str utils/channel-base-url channel-name))
+    (client/get (str utils/channel-base-url channel-name) {:as :clojure})
    (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
@@ -28,11 +28,11 @@
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
-(defn get-connected-channels [channel-name]
+(defn get-connected-channels [channel-id]
 	"Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
   (try
     (utils/async
-      (client/get (str utils/channel-base-url channel-name "/" "channels")))
+      (client/get (str utils/channel-base-url channel-id "/" "channels")))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
