@@ -39,8 +39,7 @@
 (defn get-channel-contents [channel-name]
   "Returns a list of channel contents, sans collaborators."
   (try
-    (utils/async
-      (client/get (str utils/channel-base-url channel-name "/" "contents")))
+    (client/get (str utils/channel-base-url channel-name "/" "contents"))
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 

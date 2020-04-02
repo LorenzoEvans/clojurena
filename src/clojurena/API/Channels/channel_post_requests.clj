@@ -8,17 +8,15 @@
 (defn post-channel [channel-name status]
   "Creates a new channel, requires authentication."
   (try
-    (utils/async
       (client/post utils/channel-base-url {:title channel-name
-                                           :status status}))
+                                           :status status})
     (catch Exception e
       (println "Exception Message: " (.getMessage e)))))
 
 (defn check-collaborators [ids channel-name]
  "Returns collaborators of a given channel, requires authentication."
   (try
-    (utils/async
-      (client/post (str utils/channel-base-url channel-name "/" "collaborators") {:body ids}))
+      (client/post (str utils/channel-base-url channel-name "/" "collaborators") {:body ids})
     (catch Exception e
       (println "Exception Message: " (.getMessage e))))) 
   
