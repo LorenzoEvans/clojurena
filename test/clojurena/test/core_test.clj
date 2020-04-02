@@ -23,7 +23,7 @@
 ; Block get tests
 (deftest get-block-by-id-test
   (testing "Ability to retrieve individual blocks"
-    (is (= (:status (block-get/get-block-by-id t-utils/block-base-url "5967619")) 200))))
+    (is (= (:status (block-get/get-block-by-id "5967619")) 200))))
 
 (deftest get-blocks-channels-test
   (testing "Ability to retrieve list of channels a block exists in."

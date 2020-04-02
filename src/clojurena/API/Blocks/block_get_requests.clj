@@ -7,7 +7,7 @@
     "Returns the full representation of a block, id is an numeric string, does not require authentication."
     (try
       (utils/async
-        (client/get (str utils/channel-base-url block-id)))
+        (client/get (str utils/block-base-url block-id)))
       (catch Exception e
         (println "Exception Message: " (.getMessage e)))))
 

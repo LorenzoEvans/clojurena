@@ -3,7 +3,7 @@
 		   [clojure.string :as str]
 		   [clojurena.API.utils :as utils])) ; require entire utils ns as utils         
 
-(def all-public-channels
+(defn all-public-channels []
   "Returns all public channels. May be a large amount of data, so be careful/patient." 
 	(client/get utils/channel-base-url))
 
