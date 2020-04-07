@@ -24,3 +24,4 @@
 (def app-id (env :app-id))
 (def app-secret (env :app-sec-key))
 (def cb-url (env :cb-url))
+(def access-token (env :access-token))

@@ -140,15 +140,15 @@
 ; User get tests
 (deftest get-user-test
   (testing "Ability to retrieve a specific user"
-    (is (= (:status (user-get/get-user "17")) 200))))
+    (is (= (:status (user-get/get-user "84870")) 200))))
 
 (deftest get-user-channels-test
   (testing "Ability to retrieve a specific users channels."
-    (is (= (:status (user-get/get-user-channels "17")) 200))))
+    (is (= (:status (user-get/get-user-channels "84870")) 200))))
 
 (deftest get-follows-test 
   (testing "Ability to retrieve channels/users an account is following"
-    (is (= (:status (user-get/get-follows "17")) 200))))
+    (is (= (:status (user-get/get-follows "84870")) 200))))
 
 (deftest get-followers-test
   (testing "Ability to retrieve channels/users an account is following"

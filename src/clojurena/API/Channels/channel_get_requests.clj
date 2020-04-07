@@ -33,11 +33,11 @@
 	"Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
   (let [channel-id (:id (json/read-str (:body (get-single-channel channel-name)) :key-fn keyword))]
     (try
-      (client/get (str utils/channel-base-url channel-id "/" "channels") {:as :clojure})
+      (client/get (str utils/channel-base-url channel-id "/" "channels"))
     (catch Exception e
       (println "Exception Message: " (.getMessage e))))))
 
-(defn get-channel-contents [channel-name]
+      (defn get-channel-contents [channel-name]
   "Returns a list of channel contents, sans collaborators."
   (try
     (client/get (str utils/channel-base-url channel-name "/" "contents"))

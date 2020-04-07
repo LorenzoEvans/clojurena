@@ -20,6 +20,6 @@
         (.cancel request true))))
 
 (def app-id (env :app-id))
-(def auth-token (env :access-token))
+(def access-token (env :access-token))
 (def app-secret (env :app-sec-key))
 (def cb-url (env :cb-url))

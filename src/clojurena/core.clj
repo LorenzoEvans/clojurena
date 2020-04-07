@@ -2,8 +2,9 @@
   (:require 
             [clojure.data.json :as json]
             [clj-http.client :as client]
-            [clojurena.API.Authentication.auth]
+            [clojurena.API.Authentication.auth :as auth]
             [environ.core :refer [env]]
+            [clojurena.API.utils :as utils]
             [clojurena.API.Channels.channel-get-requests :as channel-get]
             [clojurena.API.Channels.channel-post-requests]
             [clojurena.API.Channels.channel-put-requests]
@@ -18,27 +19,7 @@
 
 (defn -main
   "I don't do a whole lot."
-  []
-  )
-
-; (def deltest
-;   (delete-block "Clojurena-test" "5967619" (env :access-token)))
-
-(def channel-get-test
-  (channel-get/get-single-channel "b-w-ia_z787i4aw"))
-
-(println (:id (json/read-str (:body channel-get-test) :key-fn keyword))) ; this is IT BRO!!!
-; (def connected-channels
-;   (channel-get/get-connected-channels "b-w-ia_z787i4aw"))
-; (println connected-channels)
-; (def user-get-test
-;   (user-get/get-user "17"))
-; (println "user get is: " user-get-test)
-; (println channel)
-; (println  block)
-; (println auth-data)
-; (def test "https://dev.are.na/oauth/authorize?client_id=aa7365a1f8df2aec7b31405a7fa50944df77b2bd63c5bac07f97829168867da5&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code")
-
-; (def test-response
-;   (client/get test))
-; (println test-response)
+  [])
+(println (auth/auth-data))
+; (println user-follows-test)
+; (println  (json/read-str (:body channel-get-test) :key-fn keyword)) ; this is IT BRO!!!

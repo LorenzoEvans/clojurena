@@ -16,16 +16,17 @@
   "Returns a list of a users channels."
   (let [url (str utils/channel-base-url id)]
     (try
-        (client/get url)
+        (client/get url {:oauth utils/access-token})
       (catch Exception e
         (println "Exception Message: " (.getMessage e))))))
       
 (defn get-follows [id]
  "Returns a list of channels and users a specified user is following."
-  (try
-     (client/get (str utils/user-base-url id "/" "following"))
-    (catch Exception e
-      (println "Exception Message: " (.getMessage e)))))
+  (let [url (str utils/user-base-url id "/following")]
+    (try
+     (client/get (str utils/user-base-url id "/following"))
+     (catch Exception e
+      (println "Exception Message: " (.getMessage e))))))
       
 (defn get-followers [id]
   "Returns a list of users following a specified user."
