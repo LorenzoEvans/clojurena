@@ -31,7 +31,7 @@
 
 (defn get-connected-channels [channel-name]
 	"Returns a list of all channels connection to a specified channel, sans contents, can be paginated."
-  (let [channel-id (json/read-str (str (get-single-channel channel-name)))]
+  (let [channel-id (:id (json/read-str (:body (get-single-channel channel-name)) :key-fn keyword))]
     (try
       (client/get (str utils/channel-base-url channel-id "/" "channels") {:as :clojure})
     (catch Exception e
