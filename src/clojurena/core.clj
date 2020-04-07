@@ -21,7 +21,11 @@
   "I don't do a whole lot."
   [])
 ; (auth-data)
-(client/get auth-url (fn [response] (println "Response is: " response))
-  (fn [exception] (println "Exception is: " exception)))
+(def auth-test
+  (try
+    (client/get auth-url)
+    (catch Exception e
+      (println "Exception is: " (.getMessage e)))))
+(println auth-test)
   ; (println user-follows-test)
 ; (println  (json/read-str (:body channel-get-test) :key-fn keyword)) ; this is IT BRO!!!
