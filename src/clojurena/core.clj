@@ -2,7 +2,7 @@
   (:require 
             [clojure.data.json :as json]
             [clj-http.client :as client]
-            [clojurena.API.Authentication.auth :as auth]
+            [clojurena.API.Authentication.auth :refer [auth-url]]
             [environ.core :refer [env]]
             [clojurena.API.utils :as utils]
             [clojurena.API.Channels.channel-get-requests :as channel-get]
@@ -20,6 +20,8 @@
 (defn -main
   "I don't do a whole lot."
   [])
-(println (auth/auth-data))
-; (println user-follows-test)
+; (auth-data)
+(client/get auth-url (fn [response] (println "Response is: " response))
+  (fn [exception] (println "Exception is: " exception)))
+  ; (println user-follows-test)
 ; (println  (json/read-str (:body channel-get-test) :key-fn keyword)) ; this is IT BRO!!!
