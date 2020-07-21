@@ -1,4 +1,4 @@
-# arena-cljs
+# Clojurena
 
 Clojurena is a small library, that acts as a wrapper for the are.na api. 
 
