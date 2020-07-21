@@ -14,13 +14,7 @@
             [clojurena.API.Search.search-get-requests :as search-get]          
             [clojurena.API.Users.user-get-requests :as user-get]))
             
-; Block delete tests
-; (deftest delete-block
-;   (testing "Ability to delete blocks from specified channels"
-;     (is (= (:status (block-del/delete-block "Clojurena-test" "5967619" t-utils/auth-token)) 200))))
 
-
-; Block get tests
 (deftest get-block-by-id-test
   (testing "Ability to retrieve individual blocks"
     (is (= (:status (block-get/get-block-by-id "5967619")) 200))))
@@ -29,41 +23,6 @@
   (testing "Ability to retrieve list of channels a block exists in."
     (is (= (:status (block-get/get-blocks-channels "11236")) 200))))
 
-; (deftest block-get-tests
-;   (get-block-by-id-test)
-;   (get-blocks-channels-test))
-
-; Block put tests TBD
-; put-block
-; toggle-block-status
-
-; Block posts tests TBD
-; post-text-block
-; post-media-block
-
-; Take advantage of fixtures for destructive tests.
-; How are we going to allow users to properly authenticate themselves
-; for editing their own accounts?
-; We need to figure that out before we can test these operations.
-
-; (deftest update-block-test
-;   (testing "Ability to update specific block in channel."
-;     (is (= (block-put/put-block)))))
-
-; Test toggle block
-  
-; Take advantage of fixtures for destructive tests.
-; (deftest post-block-test
-;   (testing "Ability to post a block to a specific channel."
-;     (is (= (post )))))
-
-
-; Channel delete tests TBD
-; delete-channel
-; delete-collaborators
-; Take advantage of fixtures for destructive tests.
-
-; Channel get tests
 (deftest get-all-channels-test
   (testing "Ability to retrieve all public are.na channels."
     (is (= (:status (channel-get/all-public-channels)) 200))))
@@ -88,29 +47,6 @@
   (testing "Ability to retrieve single channel."
     (is (= (:status (channel-get/get-channel-contents "b-w-ia_z787i4aw")) 200))))
 
-; (deftest channel-get-tests
-;   (get-all-channels-test)
-;   (get-single-channel-test)
-;   (get-channel-thumb-test)
-;   (get-channel-connections-test)
-;   (get-connected-channels-test)
-;   (get-channel-contents-test))
-
-
-; Channel Post tests TBD
-
-; post-channel
-; check-collaborators
-; post-block-to-channel
-
-; Channel Put tests
-
-; update-channel-attributes
-; update-order
-; toggle-block
-
-; Search get tests
-
 (deftest search-test
   (testing "Ability to search are.na for terms."
     (is (= (:status (search-get/search "history")) 200))))
@@ -129,15 +65,6 @@
   (testing "Ability to search are.na for blocks."
     (is (= (:status (search-get/search-blocks "history")) 200))))
 
-
-; (deftest search-get-tests
-;   (search-test)
-;   (search-users-test)
-;   (search-channels-test)
-;   (search-blocks-test))
-
-
-; User get tests
 (deftest get-user-test
   (testing "Ability to retrieve a specific user"
     (is (= (:status (user-get/get-user "84870")) 200))))
@@ -153,9 +80,3 @@
 (deftest get-followers-test
   (testing "Ability to retrieve channels/users an account is following"
     (is (= (:status (user-get/get-followers "17")) 200))))
-
-; (deftest user-get-tests
-;   (get-user-test)
-;   (get-user-channels-test)
-;   (get-follows-test)
-;   (get-followers-test))
