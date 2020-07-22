@@ -14,6 +14,7 @@ https://dev.are.na/oauth/authorize?client_id=aa7365a1f8df2aec7b31405a7fa50944df7
 
 In order to obtain an access token, you will need to login to dev.are.na, with your are.na account information, and create a new application, fill out the required information, save it, and then, under "Your Applications", select the application you just created, and you will find some keys listed, your Application Id, Secret, personal Access code, etc, these can be used in environment variables to access are.na on your behalf, or to allow your code to interact with other individuals are.na account on their behalf.
 
+## Clojar: https://clojars.org/clojurena
 ## Inspired By
 
 ### arena-js 
