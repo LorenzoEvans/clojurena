@@ -3,7 +3,7 @@
               [environ.core :refer [env]]
               [clojure.string :as str]
               [clojurena.API.utils :refer [async app-id cb-url app-secret]]))
-
+# For those who are inclined to programmatically handle authentication.
 (def base-auth-url "http://dev.are.na/oauth/authorize")
 (def client-id-query (str "?client_id=" app-id)) ;*
 (def redirect-uri (str "&redirect_uri" cb-url)) ;*
