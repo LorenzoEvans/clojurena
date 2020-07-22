@@ -6,12 +6,6 @@ Are.na is a networked thought and visual organization tool designed to help you 
 
 ![Clojurena logo](clojurena.jpeg)
 
-# Work In Progress!
-
-Documentation (currently very incomplete):
-
-https://clojurena.gitbook.io/clojurena/
-
 ## Usage
 
 In order to use this library to interact with your personal are.na account, you will need to authorize Clojurena to access your account, which can be done with the string below:
